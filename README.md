@@ -1,2 +1,8 @@
-# Python
-# Projetos feitos em Python.
+[Download Python3.6](https://python.org)
+
+### Módulos Usados:
+
+* Sys
+* Time
+* Uuid
+
