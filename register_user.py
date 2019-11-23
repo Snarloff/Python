@@ -30,7 +30,7 @@ class MakeTable:
 			)
 
 	def len_archives(self):
-		return len(open("../data/logs.txt", "r").readlines()) 
+		return len(open("data/logs.txt", "r").readlines()) 
 
 	def new_user(self, name:str, age:str):
 		with open("data/logs.txt", "a+") as file:
