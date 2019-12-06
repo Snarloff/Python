@@ -8,7 +8,7 @@ from time import sleep
 
 __author__ = "Snarloff"
 __license__ = "MIT"
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __date__ = "19/11/2019 - 20/11/2019"
 
 class MakeTable:
@@ -49,25 +49,26 @@ class MakeTable:
 		return archive2.write("".join(map(str, archive)))		
 
 	def main(self):
-		response = self.menu
-		if response == "1":
-			print("\n%s" %(str(open("data/logs.txt", "r").read())) + "-=-"*10)
-		elif response == "2":
-			print("-=-"*10)
-			return self.new_user(name=str(input("Nome: ")), age=int(input("Idade: ")))
-			print("Usuário(a) cadastrado(a) com sucesso.")
-		elif response == "3":
-			print("-=-"*10)			
-			return self.del_archives(num=int(input("Qual pessoa deseja excluir do Sistema:(%s) "%(self.len_archives()+1))))
-			print("Usuário(a) deletado(a) com sucesso.")
-		elif response == "4":
-			print("-=-"*10)
-			return self.edit(num=int(input("Qual pessoa deseja editar do Sistema: ")), 
-				user=str(input("Digite o nome novo nome: ")),
-				age=str(input("Digite a nova idade: ")))
-		elif response == "5":
-			return sys.exit()
-		print("-=-"*10) 
+		while True:
+			response = self.menu
+			if response == "1":
+				print("\n%s" %(str(open("data/logs.txt", "r").read())) + "-=-"*10)
+			elif response == "2":
+				print("-=-"*10)
+				self.new_user(name=str(input("Nome: ")), age=int(input("Idade: ")))
+				print("Usuário(a) cadastrado(a) com sucesso.")
+			elif response == "3":
+				print("-=-"*10)			
+				self.del_archives(num=int(input("Qual pessoa deseja excluir do Sistema:(%s) "%(self.len_archives()))))
+				print("Usuário(a) deletado(a) com sucesso.")
+			elif response == "4":
+				print("-=-"*10)
+				self.edit(num=int(input("Qual pessoa deseja editar do Sistema: ")), 
+					user=str(input("Digite o novo nome: ")),
+					age=str(input("Digite a nova idade: ")))
+			elif response == "5":
+				exit()
+				break
 
 if __name__ == '__main__':
 	MakeTable().main()
